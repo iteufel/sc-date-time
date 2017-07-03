@@ -311,13 +311,29 @@
             _minutes: 0,
             _hours: 0,
             _incHours: function(inc) {
-              this._hours = scope._hours24 ? Math.max(0, Math.min(23, this._hours + inc)) : Math.max(1, Math.min(12, this._hours + inc));
+              if (scope._hours24) {
+                if (this._hours + inc > 23) {
+                  this._hours = 0;
+                } else if (this._hours + inc < 0) {
+                  this._hours = 23;
+                } else {
+                  this._hours = Math.max(0, Math.min(23, this._hours + inc));
+                }
+              } else {
+                Math.max(1, Math.min(12, this._hours + inc));
+              }
               if (isNaN(this._hours)) {
                 return this._hours = 0;
               }
             },
             _incMinutes: function(inc) {
-              this._minutes = Math.max(0, Math.min(59, this._minutes + inc));
+              if (this._minutes + inc > 59) {
+                this._minutes = 0;
+              } else if (this._minutes + inc < 0) {
+                this._minutes = 59;
+              } else {
+                this._minutes = Math.max(0, Math.min(59, this._minutes + inc));
+              }
               if (isNaN(this._minutes)) {
                 return this._minutes = 0;
               }
