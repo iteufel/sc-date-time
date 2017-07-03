@@ -237,6 +237,9 @@ clock-radius = 75
 					bottom: 3.0rem
 					right: 0
 					width: 9.2rem
+				& > input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+					-webkit-appearance: none;
+					margin: 0;
 	&.date-mode > .control > .slider
 		left: 0%
 	&:not(.time-mode-add):not(.time-mode-remove):not(.date-mode-add):not(.date-mode-remove)

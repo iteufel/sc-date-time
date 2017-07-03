@@ -272,6 +272,11 @@
   right: 0;
   width: 9.2rem;
 }
+.time-date > .control > .slider > .time-control > input::-webkit-outer-spin-button,
+.time-date > .control > .slider > .time-control input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 .time-date.date-mode > .control > .slider {
   left: 0%;
 }
